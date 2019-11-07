@@ -81,11 +81,13 @@ exports.onPostBuild = async ({ graphql, pathPrefix }, pluginOptions) => {
 
         imagesCount += pageImagesKeys.length;
 
+        
         urlData.push({
             url: siteUrl + path,
             img: pageImagesKeys.map(image => {
+                const imageUrl = image.indexOf('images.ctfassets.net') !== -1 ? image : siteUrl+image;
                 return {
-                    url: siteUrl + image,
+                    url: imageUrl,
                     title: pageImages[image],
                 };
             }),
