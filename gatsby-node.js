@@ -78,7 +78,7 @@ exports.onPostBuild = async ({ graphql, pathPrefix }, pluginOptions) => {
         urlData.push({
             url: siteUrl + path,
             img: pageImagesKeys.map(image => {
-                const imageUrl = image.indexOf('images.ctfassets.net') !== -1 ? `https${image}` : siteUrl+image;
+                const imageUrl = image.indexOf('images.ctfassets.net') !== -1 ? `https:${image}` : siteUrl+image;
                 return {
                     url: imageUrl,
                     title: pageImages[image],
